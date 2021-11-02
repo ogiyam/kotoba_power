@@ -1,0 +1,2 @@
+class GroupWord < ApplicationRecord
+end
