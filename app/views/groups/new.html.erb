@@ -1,0 +1,10 @@
+<h1>Groups#new</h1>
+<p>Find me in app/views/groups/new.html.erb</p>
+
+<%= form_with model: @group, url: groups_path, method: :post, local:true do |f| %>
+  <%#= render 'layouts/errors', alt: @group %>
+
+  <%= f.label :name, "新しいグループ" %>
+  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.submit "作成する" %>
+<% end %>
