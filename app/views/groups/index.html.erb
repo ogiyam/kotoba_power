@@ -1,0 +1,9 @@
+<h1>Groups#index</h1>
+<p>Find me in app/views/groups/index.html.erb</p>
+
+<%= link_to "グループ作成", new_group_path %>
+
+<% @groups.each do |group| %>
+  <%= group.name %>
+  <%= link_to "削除", group_path(group), method: :delete %>
+<% end %>
