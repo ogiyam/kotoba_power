@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :group_words, dependent: :destroy
   has_many :groups, through: :group_users, dependent: :destroy
 
+  validates :nickname, uniqueness: true
 end

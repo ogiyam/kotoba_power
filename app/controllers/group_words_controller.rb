@@ -1,0 +1,3 @@
+class GroupWordsController < ApplicationController
+  
+end

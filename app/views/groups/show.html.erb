@@ -1,0 +1,17 @@
+<h1>Groups#show</h1>
+
+<%= @group.name %>
+
+<% @group.users.each do |member| %>
+  <%= member.nickname %>
+<% end %>
+
+<%= @group.users.count %>人
+
+  <% if @group.owner_id == current_user.id %>
+   <%= link_to "グループを削除", group_path(@group), method: :delete %>
+  <% elsif @group.users.include?(current_user) %>
+   <%= link_to "退会する", group_path(@group), method: :delete %>
+  <% else %>
+   <%= link_to "参加する", group_join_path(@group) %>
+  <% end %>

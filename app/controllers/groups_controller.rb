@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action:ensure_correct_user, only: [:destroy]
+  # before_action:ensure_correct_user, only: [:destroy]
 
   def index
     @groups = Group.all
@@ -21,13 +21,23 @@ class GroupsController < ApplicationController
     end
   end
 
+  def show
+    @group = Group.find(params[:id])
+  end
+
   def destroy
-    @delete_group = Group.find(params[:id])
-    if @delete_group.destroy
-      redirect_to groups_path
+    @group = Group.find(params[:id])
+    if @group.users.delete(current_user)
+      redirect_to groups_path, notice:"グループを退会しました"
     else
-      render 'index'
+      render 'show'
     end
+  end
+
+  def join
+    @group = Group.find(params[:group_id])
+    @group.users << current_user
+    redirect_to groups_path
   end
 
   private
@@ -36,10 +46,10 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name)
   end
 
-  def ensure_correct_user
-    @group = Group.find(params[:id])
-    unless @group.owner_id == current_user.id
-      redirect_to groups_path
-    end
-  end
+  # def ensure_correct_user
+  #   @group = Group.find(params[:id])
+  #   unless @group.owner_id == current_user.id
+  #     redirect_to groups_path
+  #   end
+  # end
 end
