@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :groups, only: [:index, :show, :new, :create, :destroy] do
     get 'join' => 'groups#join'
-    resources :group_words, only: [:create, :destroy], as: 'groupword'
+    resources :group_words, only: [:index, :new, :create, :destroy], as: 'groupword'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
