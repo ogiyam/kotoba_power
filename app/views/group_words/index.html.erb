@@ -1,6 +1,6 @@
 <h1>GroupWards#index</h1>
 
-<% @group_words.each do |group| %>
+<% @group.group_words.each do |group| %>
    <%= group.word %>
    <% if @group.owner_id == current_user.id %>
      <%= link_to "削除", group_groupword_path(@group,group), method: :delete %>

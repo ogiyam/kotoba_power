@@ -4,8 +4,7 @@ class GroupWordsController < ApplicationController
 
   def index
     @group = Group.find(params[:group_id])
-    @group_word = @group.group_words.includes(:group_id)
-    @group_words = GroupWord.where(group_id: @group_id)
+    @group_words = @group.group_words.where(group_id: @group_id)
   end
 
   def new
@@ -15,11 +14,10 @@ class GroupWordsController < ApplicationController
 
   def create
     @group = Group.find(params[:group_id])
-    @group_word = GroupWord.new(group_word_params)
+    @group_word = @group.group_words.new(group_word_params)
     if @group_word.save
       redirect_to  group_groupword_index_path(@group), notice: "ことばを追加しました"
     else
-      @group_word = GroupWord.where(group_id: @group_id)
       render 'new'
     end
   end
@@ -38,7 +36,7 @@ class GroupWordsController < ApplicationController
   private
 
   def group_word_params
-    params.require(:group_word).permit(:word, :group_id)
+    params.require(:group_word).permit(:word)
   end
 
   def ensure_correct_user
