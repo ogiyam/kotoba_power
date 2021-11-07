@@ -7,6 +7,11 @@ class GroupWordsController < ApplicationController
     @group_words = @group.group_words.where(group_id: @group_id)
   end
 
+  def show
+    @group = Group.find(params[:group_id])
+    @group_word = @group.group_words.find(params[:id])
+  end
+
   def new
     @group = Group.find(params[:group_id])
     @group_word = GroupWord.new
@@ -16,7 +21,7 @@ class GroupWordsController < ApplicationController
     @group = Group.find(params[:group_id])
     @group_word = @group.group_words.new(group_word_params)
     if @group_word.save
-      redirect_to  group_groupword_index_path(@group), notice: "ことばを追加しました"
+      redirect_to  group_group_words_path(@group), notice: "ことばを追加しました"
     else
       render 'new'
     end
@@ -27,7 +32,7 @@ class GroupWordsController < ApplicationController
     @group_word = GroupWord.find(params[:id])
     if @group.owner_id == current_user.id
       @group_word.destroy
-      redirect_to  group_groupword_index_path, notice: "ことばを削除しました"
+      redirect_to  group_group_words_path, notice: "ことばを削除しました"
     else
       render 'index'
     end
@@ -42,7 +47,7 @@ class GroupWordsController < ApplicationController
   def ensure_correct_user
     @group = Group.find(params[:group_id])
     unless @group.owner_id == current_user.id
-      redirect_to group_groupword_index_path
+      redirect_to group_group_words_path
     end
   end
 end

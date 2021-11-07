@@ -2,11 +2,14 @@
 
 <% @group.group_words.each do |group| %>
    <%= group.word %>
+   <%= link_to "show", group_group_word_path(@group,group) %>
    <% if @group.owner_id == current_user.id %>
-     <%= link_to "削除", group_groupword_path(@group,group), method: :delete %>
+     <%= link_to "削除", group_group_word_path(@group,group), method: :delete %>
    <% end %>
 <% end %>
 
 <% if @group.owner_id == current_user.id %>
-  <%= link_to "ことば作成", new_group_groupword_path %>
+  <%= link_to "ことば作成", new_group_group_word_path %>
 <% end %>
+
+

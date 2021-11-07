@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_06_034232) do
+ActiveRecord::Schema.define(version: 2021_11_07_054914) do
 
   create_table "group_users", force: :cascade do |t|
     t.integer "group_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_11_06_034232) do
     t.integer "group_word_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
 end
