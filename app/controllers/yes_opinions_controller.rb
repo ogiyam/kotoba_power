@@ -1,5 +1,5 @@
 class YesOpinionsController < ApplicationController
-  before_action :set_yse_opinion
+  before_action :set_yes_opinion
 
   def create
     yes_opinion = @group_word.yes_opinions.new(user_id: current_user.id)
@@ -13,7 +13,7 @@ class YesOpinionsController < ApplicationController
 
   private
 
-  def set_yse_opinion
+  def set_yes_opinion
     @group_word = GroupWord.find(params[:group_word_id])
   end
 end
