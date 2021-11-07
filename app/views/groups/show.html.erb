@@ -17,5 +17,5 @@
   <% end %>
 
 <% if @group.users.include?(current_user) %>
-  <%= link_to "トークルームへ", group_groupword_index_path(@group) %>
+  <%= link_to "トークルームへ", group_group_words_path(@group) %>
 <% end %>

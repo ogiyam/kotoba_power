@@ -1,0 +1,6 @@
+<%= @group_word.word %>
+<%= @group_word.yes_opinions.count %>
+
+<div id="yes_btn<%= @group_word.id %>">
+<%= render 'yes_opinions/yes_btn', group_word: @group_word %>
+</div>
