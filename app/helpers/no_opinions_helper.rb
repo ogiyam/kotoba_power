@@ -1,0 +1,2 @@
+module NoOpinionsHelper
+end
