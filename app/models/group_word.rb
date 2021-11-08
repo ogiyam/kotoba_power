@@ -6,6 +6,8 @@ class GroupWord < ApplicationRecord
 
   validates :word, presence: true
   
+  enum status: { voting: 0, view_result: 1 }
+  
   def yes_opinions_by?(user)
     yes_opinions.where(user_id: user.id).exists?
   end
