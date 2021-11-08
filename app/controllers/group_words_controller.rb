@@ -26,7 +26,7 @@ class GroupWordsController < ApplicationController
       render 'new'
     end
   end
-
+  
   def destroy
     @group = Group.find(params[:group_id])
     @group_word = GroupWord.find(params[:id])
@@ -36,6 +36,11 @@ class GroupWordsController < ApplicationController
     else
       render 'index'
     end
+  end
+
+  def result
+    @group = Group.find(params[:group_id])
+    @group_word = @group.group_words.find(params[:id])
   end
 
   private
