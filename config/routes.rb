@@ -4,14 +4,14 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get '/about' => 'homes#about', as: 'about'
-  
-  
+
+
   resources :users, only: [:show]
-  
-  
+
+
   resources :groups, only: [:index, :show, :new, :create, :destroy] do
     get 'join' => 'groups#join'
-    resources :group_words, only: [:index, :show, :new, :create, :destroy] do
+    resources :group_words, only: [:index, :edit, :update, :show, :new, :create, :destroy] do
       resource :yes_opinions, only: [:create, :destroy]
       resource :no_opinions, only: [:create, :destroy]
       member do

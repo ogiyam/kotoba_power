@@ -1,13 +1,23 @@
 <h1>GroupWards#index</h1>
 
 <% @group.group_words.each do |group| %>
-   <%= group.word %>
-   <%= link_to "show", group_group_word_path(@group,group) %>
-   <%= link_to "result", result_group_group_word_path(@group,group) %>
+  <%= group.word %>
+  <%= group.status %>
+  
+  <% if group.status == 'voting' %>
+    <%= link_to "show", group_group_word_path(@group,group) %>
+  <% else %>
+    <%= link_to "result", result_group_group_word_path(@group,group) %>
+  <% end %>
 
-   <% if @group.owner_id == current_user.id %>
-     <%= link_to "ことば作成", new_group_group_word_path %>
-     <%= link_to "削除", group_group_word_path(@group,group), method: :delete %>
-   <% end %>
+  <% if @group.owner_id == current_user.id %>
+    <%= link_to "ステータス変更", edit_group_group_word_path(@group,group) %>
+    <%= link_to "削除", group_group_word_path(@group,group), method: :delete %>
+  <% end %>
+
+<% end %>
+
+<% if @group.owner_id == current_user.id %>
+  <%= link_to "ことば作成", new_group_group_word_path %>
 <% end %>
 

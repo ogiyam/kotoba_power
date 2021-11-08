@@ -5,5 +5,6 @@
 
   <%= f.label :word, "新しいことば" %>
   <%= f.text_field :word, class: 'form-control' %>
+  <%= f.select :status, GroupWord.statuses.keys.to_a, {} %>
   <%= f.submit "作成する" %>
 <% end %>
