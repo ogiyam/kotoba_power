@@ -1,6 +1,6 @@
 class GroupWordsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_owner, only: [:new, :create]
+  before_action :ensure_correct_owner, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @group = Group.find(params[:group_id])

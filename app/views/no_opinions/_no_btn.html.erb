@@ -1,5 +1,9 @@
 <% if group_word.no_opinions_by?(current_user) %>
-    <%= link_to '反対ではない', group_group_word_no_opinions_path(group_word_id: group_word.id), method: :delete, remote: true, data: {"turbolinks" => false} %>
-  <% else %>
-    <%= link_to '反対', group_group_word_no_opinions_path(group_word_id: group_word.id), method: :post, remote: true,  data: {"turbolinks" => false} %>
+    <%= link_to group_group_word_no_opinions_path(group_word_id: group_word.id), method: :delete, remote: true, data: {"turbolinks" => false} do %>
+      <i class="fas fa-times fa-10x" style="color: blue;"></i>
+    <% end %>
+<% else %>
+    <%= link_to group_group_word_no_opinions_path(group_word_id: group_word.id), method: :post, remote: true,  data: {"turbolinks" => false} do %>
+      <i class="fas fa-times fa-10x" style="color: grey;"></i>
+    <% end %>
 <% end %>
