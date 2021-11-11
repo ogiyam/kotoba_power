@@ -2,14 +2,14 @@
   <div class="row">
     <div class="col-12 text-center">
 
-      <h2>新しい題材作成</h2>
-      <p>投票の題材を決めましょう</p>
+      <h2>新しいテーマ作成</h2>
+      <p>投票のテーマを決めましょう</p>
 
-      <div class="card shadow" style="padding: 50px; ">
+      <div class="card shadow" style="padding: 50px;">
         <%= form_with model: @group_word, url: group_group_words_path, method: :post, local:true do |f| %>
           <%= render 'layouts/errors', alt: @group_word %>
 
-          <%= f.label :word, "題材" %>
+          <%= f.label :word, "テーマ" %>
           <%= f.text_field :word %><br>
           <%= f.select :status, GroupWord.statuses.keys.to_a, {} %><br>
           <div style="margin-top: 40px;"><%= f.submit "作成する" %></div>

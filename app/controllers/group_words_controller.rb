@@ -21,7 +21,7 @@ class GroupWordsController < ApplicationController
     @group = Group.find(params[:group_id])
     @group_word = @group.group_words.new(group_word_params)
     if @group_word.save
-      redirect_to  group_group_words_path, notice: "ことばを追加しました"
+      redirect_to  group_group_words_path, notice: "テーマを追加しました"
     else
       render 'new'
     end
@@ -47,7 +47,7 @@ class GroupWordsController < ApplicationController
     @group_word = @group.group_words.find(params[:id])
     if @group.owner_id == current_user.id
       @group_word.destroy
-      redirect_to  group_group_words_path, notice: "ことばを削除しました"
+      redirect_to  group_group_words_path, notice: "テーマを削除しました"
     else
       render 'index'
     end

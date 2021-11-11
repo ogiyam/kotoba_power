@@ -6,11 +6,11 @@
 
         <table class="table group_word-index">
              <thead>
-                 <tr>
-                   <th>題材</th>
-                   <th>投票ステータス</th>
-                   <th></th>
-                 </tr>
+               <tr>
+                 <th>テーマ</th>
+                 <th>投票ステータス</th>
+                 <th></th>
+               </tr>
              </thead>
              <tbody>
                 <% @group.group_words.each do |group| %>
@@ -18,15 +18,15 @@
                      <td><%= group.word %></td>
                      <td>
                        <% if group.status == 'voting' %>
-                         <%= link_to "投票中", group_group_word_path(@group,group) %>
+                        <%= link_to "投票中", group_group_word_path(@group,group) %>
                        <% else %>
-                         <%= link_to "結果発表", result_group_group_word_path(@group,group) %>
+                        <%= link_to "結果発表", result_group_group_word_path(@group,group) %>
                        <% end %>
                      </td>
                      <td>
                        <% if @group.owner_id == current_user.id %>
-                         <%= link_to "ステータス変更", edit_group_group_word_path(@group,group) %>/
-                         <%= link_to "削除", group_group_word_path(@group,group), method: :delete, data: {confirm: "本当に消しますか？"} %>
+                        <%= link_to "ステータス変更", edit_group_group_word_path(@group,group) %>/
+                        <%= link_to "削除", group_group_word_path(@group,group), method: :delete, data: {confirm: "本当に消しますか？"} %>
                        <% end %>
                      </td>
                    </tr>
@@ -34,7 +34,7 @@
              </tbody>
         </table>
         <% if @group.owner_id == current_user.id %>
-          <%= link_to "ことば作成", new_group_group_word_path, class:"btn btn-success" %>
+          <%= link_to "テーマ作成", new_group_group_word_path, class:"btn btn-success" %>
         <% end %>
 
     </div>
