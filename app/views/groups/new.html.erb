@@ -1,10 +1,23 @@
-<h1>Groups#new</h1>
-<p>Find me in app/views/groups/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
 
-<%= form_with model: @group, url: groups_path, method: :post, local:true do |f| %>
-  <%#= render 'layouts/errors', alt: @group %>
+        <h2>新しいグループ作成</h2>
+        <p>グループ名を決めましょう</p>
+        
+        <div class="card shadow" style="padding: 50px; ">
 
-  <%= f.label :name, "新しいグループ" %>
-  <%= f.text_field :name, class: 'form-control' %>
-  <%= f.submit "作成する" %>
-<% end %>
+        <%= form_with model: @group, url: groups_path, method: :post, local:true do |f| %>
+          <%= render 'layouts/errors', alt: @group %>
+            <div style="padding: auto; margin-top: 40px;">
+              <%= f.label :name, "グループ名" %>
+              <%= f.text_field :name %>
+            </div>
+            <div style="margin-top: 40px;"><%= f.submit "作成する" %></div>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+</div>

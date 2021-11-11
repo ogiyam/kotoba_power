@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>KotobaPower</title>
+    <title>TohyoFactory</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,13 +10,24 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
-  <body>
-    <% if user_signed_in? %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-        <%= link_to "新規登録", new_user_registration_path %>
-        <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
+  <body style="margin: 80px;">
+
+      <header class="navbar navbar-expand bg-info fixed-top" >
+         <div class="container-fluid">
+
+          <% if user_signed_in? %>
+            <nav class="navbar-nav ml-auto">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-danger" %>
+            </nav>
+          <% else %>
+            <nav class="navbar-nav ml-auto">
+              <%= link_to "新規登録", new_user_registration_path, class:"btn btn-success" %>
+              <%= link_to "ログイン", new_user_session_path, class:"btn btn-success" %>
+            </nav>
+          <% end %>
+         </div>
+      </header>
+
     <%= notice %>
     <%= yield %>
   </body>

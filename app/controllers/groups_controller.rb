@@ -29,17 +29,17 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
       if @group.owner_id == current_user.id
         @group.destroy
-        redirect_to groups_path, notice:"グループを削除しました"
+        redirect_to groups_path, notice: "グループを削除しました"
       else
         @group.users.delete(current_user)
-        redirect_to groups_path, notice:"グループを退会しました"
+        redirect_to groups_path, notice: "グループを退会しました"
       end
   end
 
   def join
     @group = Group.find(params[:group_id])
     @group.users << current_user
-    redirect_to groups_path, notice:"グループに参加しました"
+    redirect_to groups_path, notice: "グループに参加しました"
   end
 
   private
