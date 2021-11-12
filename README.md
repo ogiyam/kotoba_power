@@ -1,24 +1,26 @@
-# README
+# 投票ファクトリー
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイトテーマ
+グループを作って投票ができるサイト
 
-Things you may want to cover:
+想定しているサイトの使用方法
+- グループを作成した人がオーナーとなる。※グループ削除ができるのはオーナーのみ
+- オーナー以外は[参加ボタン]を押すことでグループに入ることができ、[投票ルームへ]ボタンが表示される
+- 投票ルーム内ではテーマを作成/投票ステータスの設定を行う。※投票ステータス[投票中or結果発表]
+- [投票中]が表示中に投票、期限となったらステータスを[結果発表]へ変更すると[結果発表ボタン]表示される
+- 結果発表ページでは匿名での集計結果が表示される
 
-* Ruby version
+## ターゲットユーザ
+- 学生（小・中・高）
+- リモートワークを取り入れている団体
 
-* System dependencies
+## 主な利用シーン
+- 匿名性が高い状況で多数決したいとき
+- リモートで多数決したいとき
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
