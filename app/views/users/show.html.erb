@@ -4,7 +4,13 @@
 
       <div class="text-center">
       <h3>こんにちは <%= @user.nickname %>さん</h3>
-      <h5>「投票ファクトリー」へようこそ！</h5>
+      <h3>「投票ファクトリー」へようこそ！</h3>
+      
+       <div class="card shadow" style="padding: 50px;">
+        ・グループを作成（作成者がグループのオーナーとなり、グループやテーマの削除、ステータス変更が行えます。）<br>
+        ・作成したグループをクリックし、「参加ボタン」を押すと投票ルームに入ることが可能となります。<br>
+        ・テーマを作成して投票をしましょう。<br>
+      </div>
 
       <%= link_to "グループ一覧", groups_path, class:"btn btn-success" %>
       </div>
