@@ -1,7 +1,15 @@
-<h1>GroupWards#edit</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
 
-　<%= form_with model: @group_word, url: group_group_word_path, method: :patch, local:true do |f| %>
-  <%= render 'layouts/errors', alt: @group %>
-  <%= f.select :status, GroupWord.statuses.keys.to_a, {} %>
-  <%= f.submit "変更する" %>
-<% end %>
+      <h1>投票ステータス変更画面</h1>
+      
+       <%= form_with model: @group_word, url: group_group_word_path, method: :patch, local:true do |f| %>
+        <%= render 'layouts/errors', alt: @group %>
+        <%= f.select :status, GroupWord.statuses.keys.to_a, {} %>
+        <%= f.submit "変更する" %>
+      <% end %>
+      
+    </div>
+  </div>
+</div>
