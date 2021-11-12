@@ -1,0 +1,11 @@
+<!--共通エラーメッセージ-->
+<div class="text-center">
+    <% if alt.errors.any? %>
+     <div class="err_head" style="font-size:20px;"><%= alt.errors.count %> 件のエラーが発生しました:</div>
+     <div class="err_list">
+      <% alt.errors.full_messages.each do |messages| %>
+       <p>- <%= messages %> -</p>
+      <% end %>
+     </div>
+    <% end %>
+</div>

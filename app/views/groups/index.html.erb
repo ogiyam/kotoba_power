@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      
+       <h1>グループ一覧</h1>
+       <%= link_to "グループ作成", new_group_path, class:"btn btn-success" %>
+
+        <% @groups.each do |group| %>
+            <div class="card shadow " style="width:100%; margin:15px;">
+              <div class="card-header">
+                <% if group.users.include?(current_user) %>
+                  <div style="color:red">〈参加中〉</div>
+                   <%= link_to group.name, group_path(group) %>
+                <% else %>
+                   <%= link_to group.name, group_path(group) %>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+
+    </div>
+  </div>
+</div>
