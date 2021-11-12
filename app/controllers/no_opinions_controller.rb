@@ -1,4 +1,5 @@
 class NoOpinionsController < ApplicationController
+   before_action :authenticate_user!
    before_action :set_no_opinion
 
   def create

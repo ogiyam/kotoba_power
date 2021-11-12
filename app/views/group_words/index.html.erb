@@ -10,6 +10,7 @@
                  <th>テーマ</th>
                  <th>投票ステータス</th>
                  <th></th>
+                 <th></th>
                </tr>
              </thead>
              <tbody>
@@ -23,12 +24,8 @@
                         <%= link_to "結果発表", result_group_group_word_path(@group,group) %>
                        <% end %>
                      </td>
-                     <td>
-                       <% if @group.owner_id == current_user.id %>
-                        <%= link_to "ステータス変更", edit_group_group_word_path(@group,group) %>/
-                        <%= link_to "削除", group_group_word_path(@group,group), method: :delete, data: {confirm: "本当に消しますか？"} %>
-                       <% end %>
-                     </td>
+                     <td><%= link_to "ステータス変更", edit_group_group_word_path(@group,group) %></td>
+                     <td> <%= link_to "削除", group_group_word_path(@group,group), method: :delete, data: {confirm: "本当に消しますか？"} %></td>
                    </tr>
                 <% end %>
              </tbody>
