@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      group_word:
+        word: テーマ
+      group:
+        name: グループ名

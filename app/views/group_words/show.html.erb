@@ -5,17 +5,17 @@
       <h1>投票画面</h1>
 
       <%= @group_word.word %>
-      <%= @group_word.yes_opinions.count %>
-      <%= @group_word.no_opinions.count %>
 
       <div class="d-flex justify-content-center">
         <div id="yes_btn<%= @group_word.id %>" style="padding:100px;">
         <%= render 'yes_opinions/yes_btn', group_word: @group_word %>
         </div>
+        
         <div id="no_btn<%= @group_word.id %>" style="padding:100px;">
         <%= render 'no_opinions/no_btn', group_word: @group_word %>
         </div>
       </div>
+      
       <%= link_to 'OK', group_group_words_path, class:"btn btn-success"%>
 
     </div>
