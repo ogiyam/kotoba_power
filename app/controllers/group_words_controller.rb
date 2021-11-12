@@ -44,7 +44,7 @@ class GroupWordsController < ApplicationController
   def destroy
     @group = Group.find(params[:group_id])
     @group_word = @group.group_words.find(params[:id])
-    if @group.owner_id == current_user.id
+    if @group.users.include?(current_user)
       @group_word.destroy
       redirect_to  group_group_words_path, notice: "テーマを削除しました"
     else
