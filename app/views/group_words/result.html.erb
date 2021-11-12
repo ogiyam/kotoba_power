@@ -1,5 +1,17 @@
-<h1>GroupWords#result</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
 
-<%= @group_word.word %>
-賛成<%= @group_word.yes_opinions.count %>件
-反対<%= @group_word.no_opinions.count %>件
+        <h1>「<%= @group_word.word %>」</h1>
+        <h3>結果は・・・</h3>
+
+        <div class="d-flex justify-content-center" style="padding: 50px;">
+          <i class="far fa-circle fa-6x" style="color: red;"></i><p style="font-size: 70px;"><%= @group_word.yes_opinions.count %>票</p>
+          <i class="far fa-times-circle fa-6x" style="color: blue; margin-left:80px; "></i><p style="font-size: 70px;"><%= @group_word.no_opinions.count %>票</p>
+        </div>
+
+        <%= link_to "テーマ一覧に戻る", group_group_words_path, class:"btn btn-success" %>
+
+    </div>
+  </div>
+</div>

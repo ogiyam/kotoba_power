@@ -6,17 +6,16 @@
         <p>グループ名を決めましょう</p>
         
         <div class="card shadow" style="padding: 50px; ">
-
-        <%= form_with model: @group, url: groups_path, method: :post, local:true do |f| %>
-          <%= render 'layouts/errors', alt: @group %>
-            <div style="padding: auto; margin-top: 40px;">
-              <%= f.label :name, "グループ名" %>
-              <%= f.text_field :name %>
-            </div>
-            <div style="margin-top: 40px;"><%= f.submit "作成する" %></div>
-        <% end %>
-
-      </div>
+          <%= form_with model: @group, url: groups_path, method: :post, local:true do |f| %>
+            <%= render 'layouts/errors', alt: @group %>
+              <div style="padding: auto; margin-top: 40px;">
+                <%= f.label :name, "グループ名" %>
+                <%= f.text_field :name %>
+              </div>
+              <div style="margin-top: 40px;"><%= f.submit "作成する" %></div>
+          <% end %>
+        </div>
+        <%= link_to "グループ一覧へ戻る", groups_path, class:"btn btn-primary" %>
 
     </div>
   </div>
