@@ -1,5 +1,6 @@
 class GroupWordsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_correct_group_user
 
   def index
     @group = Group.find(params[:group_id])
@@ -61,5 +62,12 @@ class GroupWordsController < ApplicationController
 
   def group_word_params
     params.require(:group_word).permit(:word, :status)
+  end
+
+  def ensure_correct_group_user
+    @group = Group.find(params[:group_id])
+    if !@group.users.include?(current_user)
+      redirect_to groups_path
+    end
   end
 end
